@@ -5,15 +5,15 @@
     </ion-toolbar>
   </ion-header> 
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        @for (photo of photoService.photos; track $index) {
-          <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, $index)"></ion-img>
-        }
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <cdk-virtual-scroll-viewport itemSize="100" class="viewport">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *cdkVirtualFor="let photo of photoService.photos; let i = index">
+          <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, i)"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </cdk-virtual-scroll-viewport>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="photoService.addNewToGallery()">

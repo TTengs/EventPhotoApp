@@ -3,12 +3,13 @@ import { IonHeader, IonTitle, IonContent, IonToolbar, IonGrid, IonRow, IonCol, I
 import { PhotoService, UserPhoto } from '../services/photo.service';
 import { addIcons } from 'ionicons';
 import { trash, close, camera } from 'ionicons/icons';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @Component({
   selector: 'app-camera-access',
   templateUrl: './camera-access.component.html',
   styleUrls: ['./camera-access.component.scss'],
   standalone: true,
-  imports: [IonFabButton, IonToolbar, IonHeader, IonTitle, IonContent, IonToolbar, IonGrid, IonRow, IonCol, IonImg, IonFab, IonIcon],
+  imports: [IonFabButton, IonToolbar, IonHeader, IonTitle, IonContent, IonToolbar, IonGrid, IonRow, IonCol, IonImg, IonFab, IonIcon, ScrollingModule],
 })
 export class CameraAccessComponent  implements OnInit {
   public photoService = inject(PhotoService);
